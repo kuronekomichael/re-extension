@@ -1,0 +1,30 @@
+{
+  "name": "拡張機能リローダー",
+  "manifest_version": 2,
+  "version": "0.1.0",
+  "description": "Ctrl+rで特定の拡張機能をリロードする拡張機能です。他のChrome Extensionを開発する用です。",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "16": "icon_16x16.png",
+    "128": "icon_128x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches" : [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["content_script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "management",
+    "background"
+  ],
+  "options_page": "options.html"
+}
